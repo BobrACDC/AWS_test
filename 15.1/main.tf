@@ -57,12 +57,12 @@
 
 resource "aws_ec2_client_vpn_endpoint" "ach_vpn_endpoint" {
   description            = "terraform-clientvpn-endpoint"
-  server_certificate_arn = "arn:aws:acm:us-west-2:895196022326:certificate/49263fec-cb3e-4ad7-b5be-ac74c9331479"
+  server_certificate_arn = "arn:aws:acm:us-west-2:******"
   client_cidr_block      = "10.0.0.0/16"
 
   authentication_options {
     type                       = "certificate-authentication"
-    root_certificate_chain_arn = "arn:aws:acm:us-west-2:895196022326:certificate/0124bc9c-9098-4f91-9c43-d5b2bbc3103b"
+    root_certificate_chain_arn = "arn:aws:acm:us-west-2:******"
   }
 
   connection_log_options {
@@ -85,11 +85,6 @@ resource "aws_ec2_client_vpn_authorization_rule" "default_vpn_authorization_rule
 
 
 
-
-
-#provider "aws" {
- # region = "us-west-2"
-#}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
